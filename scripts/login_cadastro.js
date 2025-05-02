@@ -1,5 +1,5 @@
-const btnControlLogin = document.getElementById('ControlLogin');
 const btnControlCadastro = document.getElementById('ControlCadastro');
+const btnControlLogin = document.getElementById('ControlLogin');
 const formLogin = document.getElementById('formLogin');
 const formCadastro = document.getElementById('formCadastro');
 
