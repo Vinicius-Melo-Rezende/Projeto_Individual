@@ -15,7 +15,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <div id="div_txt"></div>
 </head>
 
 
@@ -35,7 +34,7 @@
                 <a href="#Perguntas" id="aMissao" class="aNavHeader">
                     <li class="liHeader">Perguntas</li>
                 </a>
-                <a href="#h2quiz" id="aContato" class="aNavHeader">
+                <a href="#quiz" id="aContato" class="aNavHeader">
                     <li class="liHeader">Quiz</li>
                 </a>
             </nav>
@@ -48,8 +47,8 @@
             <div id="apresentacaoContainer">
                 <div id="apresentacaoSubContainer">
                     <h2 id="h2Apresentacao">Reserve um tempo para Deus</h2>
-                    <p id="pApresentacao"><br>Informe um numero de 1 a 50:<input id="valorFrases"></p>
-                    <button onclick="frase()">Gerar a frase do Dia!</button>
+                    <p id="pApresentacao"><br>Informe um numero de 1 a 50: <input id="valorFrases"></p>
+                    <button onclick="frase()" id="buttonComeco">Gerar a frase do Dia!</button><br><div id="div_txt"></div>
 
                 </div>
                 <span id="spanCopy">© 2025 DivineTech. Todos os direitos reservados.</span>
@@ -128,7 +127,6 @@
             </div>
         </div>
     </section>
-    <section id="perguntasQuiz">
        <section id="quiz">
         <h2 id="h2quiz"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Quiz Bíblico<br><br></h2>
     <div id="conteudoQuiz">
@@ -250,22 +248,22 @@
         </div>
             <button onclick="verificarRespostas()" style="margin-top: 15px;">Verificar Respostas</button><br><br>
             <p id="resultado"></p>
-            <canvas id="graficoPizza"></canvas>
         </div>
+        <div id="grafico"><canvas id="graficoPizza"></canvas></div>
 </section>
             </div>
         </div>
-    </section>
-    <script src="./scripts/index_Copia.js"></script>
+    <script src="./scripts/index_PosLogin.js"></script>
 </body>
 </html>
 <script>
     function verificarRespostas() {
-        let certo = 0;
-        let total = 15; 
-        let erros = [];
+        var valorTotal = [];
+        var certo = 0;
+        var total = 15; 
+        var erros = [];
                 
-        for (let int = 1; int <= total; int++) {
+        for (var int = 1; int <= total; int++) {
             const resposta = document.querySelector(`input[name="q${int}"]:checked`);
             if (resposta) {
                 if (resposta.value === "certo") {
@@ -279,8 +277,8 @@
                 erros.push(int);
             }
         }
-    
-        let errado = total - certo;
+        valorTotal.push(certo);
+        var errado = total - certo;
         document.getElementById("resultado").innerHTML = 
             `Você acertou ${certo} de ${total} perguntas.<br>
             Perguntas erradas: ${erros.join(', ')}`;
