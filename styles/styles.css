@@ -33,7 +33,7 @@ header {
 }
 
 #btnHeader {
-    background-color: #653604;
+    background-color: #eb7a16;
     height: 3.6vw;
     width: 12vw;
     color: #fff;
@@ -154,8 +154,8 @@ header {
     color: #fff;
     text-align: center;
     word-spacing: 0.3px;
-    font-size: 2.3vw;
-    padding-top:13vh;;
+    font-size: 3vw;
+    padding-top:13vh;
 }
 
 #conteudoLinhaDaVida {
@@ -190,17 +190,18 @@ header {
 #conteudoMVV {
     display: flex;
     justify-content: space-around;
+    background-color: #000;
 }
 
 .containerMVV {
     width: 30%;
-    padding: 1vw;
+    padding : 1vw;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
     transition: 0.3s ease-in;
+    height: 50vh;
 }
 
 .containerMVV:hover {
@@ -234,7 +235,7 @@ header {
 }
 
 .imgMVV {
-    width: 4vw;
+    width: 6vw;
 }
 
 .p_MVV {
@@ -246,73 +247,54 @@ header {
     width: 100%;
 }
 
-#Contato {
-    height: 50vh;
+footer {
+    height: 45vh;
     width: 100%;
     background: #000;
 }
 
-#h2Contato {
-    padding-top: 2vw;
-    color: #fff;
-    text-align: center;
-    font-size: 2.3vw;
-}
-
-#containerContato {
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-#conteudoContato {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-.spanContato {
-    font-size: 1.4vw;
-    color: #d4d0d0;
-    display: flex;
-    align-items: center;
-}
-
-#Contato {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-}
-
-.iconContato {
-    width: 2vw;
-    margin-right: 1vw;
-}
-
-footer {
-    height: 20vh;
-    width: 100%;
-    background: #1a1919;
-}
-
 #logoFooter {
     width: 20vw;
-    height: 20vh;
+    margin-top: 10%;
 }
 
 #containerFooter {
-    height: 100%;
+    height: 70%;
 }
 
 .conteudofooter {
     background: #030303;
-    height: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+#Funcionalidades {
+    color: #fff;
+    padding-top: 7%;
+    padding-bottom: 3%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#divFuncionalidades {
+    font-size: 2.0vw;
+    background-color: #000;
+}
+
+#missoes {
+    color: #fff;
+    background-color: #000;
+    padding-top: 7%;
+    padding-bottom: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+#divMissoes {
+    font-size: 2.0vw;
+    background-color: #000;
 }

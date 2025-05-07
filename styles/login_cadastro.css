@@ -50,7 +50,7 @@ main {
 }
 
 #ControlLogin {
-    background: #4E2B06;
+    background: #ff0000;
 }
 
 #ControlCadastro {
@@ -106,7 +106,7 @@ main {
 
 .btnForm {
     width: 80%;
-    background: #653604;
+    background-color: #eb7a16;
     color: #fff;
     border: none;
     cursor: pointer;
