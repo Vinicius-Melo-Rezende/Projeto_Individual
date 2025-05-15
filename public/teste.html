@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentando fazer um botão que gera um numero sozinho</title>
+</head>
+<body>
+    <button onclick="sortear()">Gerar Frase</button>
+    <div id="div_txt"></div>
+</body>
+</html>
+<script>
+    var frases = [];
+    function sortear() {
+        frases.push(  "A fé te leva onde os olhos não podem ver.",
+  "Deus permite a luta, mas também garante a vitória.",
+  "A dor pode durar uma noite, mas a alegria vem pela manhã.",
+  "Deus usa as provações para revelar o seu poder.",
+  "Quando você pensa em desistir, Deus já preparou a saída.",
+  "Não há tempestade que Deus não possa acalmar.",
+  "Cada cicatriz mostra que Deus curou.",
+  "Você é mais forte do que imagina, porque Deus está com você.",
+  "Mesmo quebrado, Deus ainda pode te usar.",
+  "A prova é dura, mas o propósito é maior.",
+  "Deus transforma lágrimas em força e dor em fé.",
+  "O amanhã pertence a Deus, então descanse hoje.",
+  "Deus faz florescer o deserto da sua alma.",
+  "Tenha esperança: o melhor de Deus ainda está por vir.",
+  "Onde há fé, há esperança, e onde há Deus, há milagres.",
+  "Deus nunca te deixará de mãos vazias.",
+  "A espera pode ser longa, mas Deus nunca esquece suas promessas.",
+  "O recomeço de Deus é melhor do que qualquer final sem Ele.",
+  "Em Deus, não existem causas perdidas.",
+  "O tempo de Deus cura tudo.",
+  "Deus é especialista em tornar sonhos impossíveis realidade.",
+  "Agradeça, mesmo sem entender; Deus já está agindo.",
+  "Deus te criou com um propósito único.",
+  "A tua história nas mãos de Deus é um testemunho em construção.",
+  "Tudo coopera para o bem daqueles que amam a Deus.",
+  "O que hoje parece confuso, amanhã será motivo de gratidão.",
+  "O que vem de Deus traz paz, não confusão.",
+  "Sirva a Deus com alegria e Ele encherá seu coração de propósito.",
+  "Nada é em vão quando está nas mãos de Deus.",
+  "A vida com Deus não é perfeita, mas é plena.",
+  "O maior presente é saber que Deus está contigo.",
+  "Deus é maior que qualquer medo.",
+  "Quando oramos, o céu se move.",
+  "A oração é a chave que abre portas fechadas.",
+  "Deus está no controle, mesmo quando tudo foge do seu.",
+  "A presença de Deus é tudo o que você precisa.",
+  "A palavra de Deus é lâmpada para os seus pés.",
+  "Deus não olha para a aparência, mas para o coração.",
+  "Confie, mesmo sem entender. Deus sabe o que faz.",
+  "Caminhe com fé, mesmo sem ver o caminho.",
+  "Quando você crê, Deus age.")
+            var numSorteio = Math.random() * 49 + 1;
+            div_txt.innerHTML += `${frases[numSorteio]}`
+            
+    }
+</script>
