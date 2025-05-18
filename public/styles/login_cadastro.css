@@ -20,7 +20,7 @@ main {
     border-radius: 8px;
     width: 38%;
     border: 1px solid;
-    padding: 2vw 0;
+    padding: 2vw;
 }
 
 #containerSubControlForm {
@@ -137,7 +137,7 @@ main {
 }
 
 #logo {
-    width: 15vw;
+    width: 10vw;
     margin-top: 3%;
 }
 
