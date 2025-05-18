@@ -47,9 +47,8 @@
             <div id="apresentacaoContainer">
                 <div id="apresentacaoSubContainer">
                     <h2 id="h2Apresentacao">Reserve um tempo para Deus</h2>
-                    <p id="pApresentacao"><br>Informe um numero de 1 a 50: <input id="valorFrases"></p>
-                    <button onclick="frase()" id="buttonComeco">Gerar a frase do Dia!</button><br><div id="div_txt"></div>
-
+                    <button onclick="sortear()" id="buttonComeco">Gerar a frase do Dia!</button><br>
+                    <div id="div_txt"></div>
                 </div>
                 <span id="spanCopy">© 2025 DivineTech. Todos os direitos reservados.</span>
             </div>
@@ -246,8 +245,8 @@
                 <input type="radio" name="q15" value="errado"> 73<br>
             </div>
         </div>
-            <button onclick="verificarRespostas()" style="margin-top: 15px;">Verificar Respostas</button><br><br>
-            <p id="resultado"></p>
+            <button onclick="grafico()" style="margin-top: 15px;">Verificar Respostas</button><br><br>
+            <p id="div_Grafico"></p>
         </div>
         <div id="grafico"><canvas id="graficoPizza"></canvas></div>
 </section>
@@ -257,216 +256,114 @@
 </body>
 </html>
 <script>
-    function verificarRespostas() {
-        var valorTotal = [];
-        var certo = 0;
-        var total = 15; 
-        var erros = [];
-                
-        for (var int = 1; int <= total; int++) {
-            const resposta = document.querySelector(`input[name="q${int}"]:checked`);
-            if (resposta) {
-                if (resposta.value === "certo") {
-                    certo++;
-                } 
-                else {
-                    erros.push(int);
-                }
-            } 
-            else {
-                erros.push(int);
-            }
-        }
-        valorTotal.push(certo);
-        var errado = total - certo;
-        document.getElementById("resultado").innerHTML = `Você acertou ${certo} de ${total} perguntas.<br>  Perguntas erradas: ${erros.join(', ')}`;
-        const ctx = document.getElementById('graficoPizza').getContext('2d');
-        if (window.pizzaChart) {
-            window.pizzaChart.destroy();
-        }
-    
-        window.pizzaChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Acertos', 'Erros'],
-                datasets: [{
-                    data: [certo, errado],
-                    backgroundColor: ['#4CAF50', '#F44336']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }
-        });
-    }    
-    function frase() {
-        div_txt.innerHTML = ``
-        if(valorFrases.value == 1){
-           div_txt.innerHTML = `Sejam fortes e corajosos. Não tenham medo, nem fiquem apavorados por causa deles, pois o Senhor, o seu Deus, vai com vocês; nunca os deixará, nunca os abandonará.<br>
-           Versículo = Deuteronômio 31:6 `
-        }
-        if(valorFrases.value == 2){
-            div_txt.innerHTML = `Graças ao grande amor do Senhor é que não somos consumidos, pois as suas misericórdias são inesgotáveis. Renovam-se cada manhã; grande é a sua fidelidade!<br>
-            Versículo = Lamentações 3:22-23 `
-         }
-         if(valorFrases.value == 3){
-            div_txt.innerHTML = `Por isso não tema, pois estou com você; não tenha medo, pois sou o seu Deus. Eu o fortalecerei e o ajudarei; eu o segurarei com a minha mão direita vitoriosa.<br>
-            Versículo = Isaías 41:10  `
-         }
-         if(valorFrases.value == 4){
-            div_txt.innerHTML = `Se Deus é por nós, quem será contra nós?<br>
-            Romanos 8:31`
-         }
-         if(valorFrases.value == 5){
-            div_txt.innerHTML = `Porque eu bem sei os pensamentos que penso de vós, diz o Senhor..<br>
-            Jeremias 29:11`
-         }
-         if(valorFrases.value == 6){
-            div_txt.innerHTML = `Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia.<br.
-            Salmos 46:1`
-         }
-         if(valorFrases.value == 7){
-            div_txt.innerHTML = `Seja forte e corajoso! Não se apavore nem desanime...<br>
-            Josué 1:9 `
-         }
-         if(valorFrases.value == 8){
-            div_txt.innerHTML = `Elevo os meus olhos para os montes: de onde me vem o socorro? O meu socorro vem do Senhor...<br>
-            Salmos 121:1-2`
-         }
-         if(valorFrases.value == 9  ){
-            div_txt.innerHTML = `Confia no Senhor de todo o teu coração e não te estribes no teu próprio entendimento.<br>
-            Provérbios 3:5-6`
-         }
-         if(valorFrases.value == 10){
-            div_txt.innerHTML = `Guardemos firme a confissão da esperança, sem vacilar, pois fiel é aquele que prometeu.<br>
-            Hebreus 10:23`
-         }
-         if(valorFrases.value == 11){   
-            div_txt.innerHTML = `Eis que Deus é a minha salvação; confiarei e não temerei.<br>
-            Isaías 12:2`
-         }
-         if(valorFrases.value == 12){
-            div_txt.innerHTML = `O choro pode durar uma noite, mas a alegria vem pela manhã.<br>
-            Salmos 30:5`
-         }
-         if(valorFrases.value == 13){
-            div_txt.innerHTML = `Deus usa as provações para revelar o seu poder.`
-         }
-         if(valorFrases.value == 14){
-            div_txt.innerHTML = `Quando você pensa em desistir, Deus já preparou a saída.`
-         }
-         if(valorFrases.value == 15){
-            div_txt.innerHTML = `Não há tempestade que Deus não possa acalmar.`
-         }
-         if(valorFrases.value == 16){
-            div_txt.innerHTML = `Cada cicatriz mostra que Deus curou.`
-         }
-         if(valorFrases.value == 17){
-            div_txt.innerHTML = `Você é mais forte do que imagina, porque Deus está com você.`
-         }
-         if(valorFrases.value == 18){
-            div_txt.innerHTML = `Mesmo quebrado, Deus ainda pode te usar.`
-         }
-         if(valorFrases.value == 19){
-            div_txt.innerHTML = `A prova é dura, mas o propósito é maior.`
-         }
-         if(valorFrases.value == 20){
-            div_txt.innerHTML = `Deus transforma lágrimas em força e dor em fé.`
-         }
-         if(valorFrases.value == 21){
-            div_txt.innerHTML = `O amanhã pertence a Deus, então descanse hoje.`
-         }
-         if(valorFrases.value == 22){
-            div_txt.innerHTML = `Deus faz florescer o deserto da sua alma.`
-         }
-         if(valorFrases.value == 23){
-            div_txt.innerHTML = `Tenha esperança: o melhor de Deus ainda está por vir.`
-         }
-         if(valorFrases.value == 24){
-            div_txt.innerHTML = `Onde há fé, há esperança, e onde há Deus, há milagres.`
-         }
-         if(valorFrases.value == 25){
-            div_txt.innerHTML = `Deus nunca te deixará de mãos vazias.`
-         }
-         if(valorFrases.value == 26){
-            div_txt.innerHTML = `A espera pode ser longa, mas Deus nunca esquece suas promessas.`
-         }
-         if(valorFrases.value == 27){
-            div_txt.innerHTML = `O recomeço de Deus é melhor do que qualquer final sem Ele.`
-         }
-         if(valorFrases.value == 28){
-            div_txt.innerHTML = `Em Deus, não existem causas perdidas.`
-         }
-         if(valorFrases.value == 29){
-            div_txt.innerHTML = `O tempo de Deus cura tudo.`
-         }
-         if(valorFrases.value == 30){
-            div_txt.innerHTML = `Deus é especialista em tornar sonhos impossíveis realidade.`
-         }
-         if(valorFrases.value == 31){
-            div_txt.innerHTML = `Agradeça, mesmo sem entender; Deus já está agindo.`
-         }
-         if(valorFrases.value == 32){
-            div_txt.innerHTML = `Deus te criou com um propósito único.`
-         }
-         if(valorFrases.value == 33){
-            div_txt.innerHTML = `A tua história nas mãos de Deus é um testemunho em construção.`
-         }
-         if(valorFrases.value == 34){
-            div_txt.innerHTML = `Tudo coopera para o bem daqueles que amam a Deus.`
-         }
-         if(valorFrases.value == 35){
-            div_txt.innerHTML = `O que hoje parece confuso, amanhã será motivo de gratidão.`
-         }
-         if(valorFrases.value == 36){
-            div_txt.innerHTML = `O que vem de Deus traz paz, não confusão.`
-         }
-         if(valorFrases.value == 37){
-            div_txt.innerHTML = `Sirva a Deus com alegria e Ele encherá seu coração de propósito.`
-         }
-         if(valorFrases.value == 38){
-            div_txt.innerHTML = `Nada é em vão quando está nas mãos de Deus.`
-         }
-         if(valorFrases.value == 39){
-            div_txt.innerHTML = `A vida com Deus não é perfeita, mas é plena.`
-         }
-         if(valorFrases.value == 40){
-            div_txt.innerHTML = `O maior presente é saber que Deus está contigo.`
-         }
-         if(valorFrases.value == 41){
-            div_txt.innerHTML = `Deus é maior que qualquer medo.`
-         }
-         if(valorFrases.value == 42){
-            div_txt.innerHTML = `Quando oramos, o céu se move.`
-         }
-         if(valorFrases.value == 43){
-            div_txt.innerHTML = `A oração é a chave que abre portas fechadas.`
-         }
-         if(valorFrases.value == 44){
-            div_txt.innerHTML = `Deus está no controle, mesmo quando tudo foge do seu.`
-         }
-         if(valorFrases.value == 45){
-            div_txt.innerHTML = `A presença de Deus é tudo o que você precisa.`
-         }
-         if(valorFrases.value == 46){
-            div_txt.innerHTML = `A palavra de Deus é lâmpada para os seus pés.`
-         }
-         if(valorFrases.value == 47){
-            div_txt.innerHTML = `Deus não olha para a aparência, mas para o coração.`
-         }
-         if(valorFrases.value == 48){
-            div_txt.innerHTML = `Confie, mesmo sem entender. Deus sabe o que faz.`
-         }
-         if(valorFrases.value == 49){
-            div_txt.innerHTML = `Caminhe com fé, mesmo sem ver o caminho.`
-         }
-         if(valorFrases.value == 50){
-            div_txt.innerHTML = `Quando você crê, Deus age.`
-         }
+      var frases = [
+      "Sejam fortes e corajosos... Versículo = Deuteronômio 31:6",
+      "Graças ao grande amor do Senhor... Versículo = Lamentações 3:22-23",
+      "Por isso não tema... Versículo = Isaías 41:10",
+      "Se Deus é por nós... Romanos 8:31",
+      "Porque eu bem sei os pensamentos... Jeremias 29:11",
+      "Deus é o nosso refúgio... Salmos 46:1",
+      "Seja forte e corajoso!... Josué 1:9",
+      "Elevo os meus olhos para os montes...<br>Salmos 121:1-2",
+      "Confia no Senhor de todo o teu coração...<br>Provérbios 3:5-6",
+      "Guardemos firme a confissão da esperança...<br>Hebreus 10:23",
+      "Eis que Deus é a minha salvação...<br>Isaías 12:2",
+      "O choro pode durar uma noite...<br>Salmos 30:5",
+      "Deus usa as provações para revelar o seu poder.",
+      "Quando você pensa em desistir, Deus já preparou a saída.",
+      "Não há tempestade que Deus não possa acalmar.",
+      "Cada cicatriz mostra que Deus curou.",
+      "Você é mais forte do que imagina...",
+      "Mesmo quebrado, Deus ainda pode te usar.",
+      "A prova é dura, mas o propósito é maior.",
+      "Deus transforma lágrimas em força e dor em fé.",
+      "O amanhã pertence a Deus, então descanse hoje.",
+      "Deus faz florescer o deserto da sua alma.",
+      "Tenha esperança: o melhor de Deus ainda está por vir.",
+      "Onde há fé, há esperança...",
+      "Deus nunca te deixará de mãos vazias.",
+      "A espera pode ser longa, mas Deus nunca esquece...",
+      "O recomeço de Deus é melhor que qualquer final sem Ele.",
+      "Em Deus, não existem causas perdidas.",
+      "O tempo de Deus cura tudo.",
+      "Deus é especialista em tornar sonhos realidade.",
+      "Agradeça, mesmo sem entender...",
+      "Deus te criou com um propósito único.",
+      "A tua história nas mãos de Deus é um testemunho.",
+      "Tudo coopera para o bem daqueles que amam a Deus.",
+      "O que hoje parece confuso...",
+      "O que vem de Deus traz paz, não confusão.",
+      "Sirva a Deus com alegria...",
+      "Nada é em vão quando está nas mãos de Deus.",
+      "A vida com Deus não é perfeita, mas é plena.",
+      "O maior presente é saber que Deus está contigo.",
+      "Deus é maior que qualquer medo.",
+      "Quando oramos, o céu se move.",
+      "A oração é a chave que abre portas.",
+      "Deus está no controle...",
+      "A presença de Deus é tudo o que você precisa.",
+      "A palavra de Deus é lâmpada para os seus pés.",
+      "Deus não olha para a aparência...",
+      "Confie, mesmo sem entender...",
+      "Caminhe com fé, mesmo sem ver o caminho.",
+      "Quando você crê, Deus age."
+    ];
+
+    function sortear() {
+      div_txt.innerHTML = ``
+      var aleatorio = parseInt(Math.random() * 50);
+      div_txt.innerHTML += `${frases[aleatorio]}`;
     }
+function grafico() {
+    var total = 15;
+    var certo = 0;
+    var erros = [];
+
+    for (var int = 1; int <= total; int++) {
+                var qtdAlternativas = document.getElementsByName(`q${int}`);
+                    var marcador = false;
+                        for (var i = 0; i < qtdAlternativas.length; i++) {
+                            if (qtdAlternativas[i].checked) {
+                                marcador = true;
+                                    if (qtdAlternativas[i].value == "certo") {
+                                        certo++;
+                                    } 
+                                        else {
+                                        erros.push(int);
+                                        }
+                                        break;
+                            }
+                        }
+        if (!marcador) {
+            erros.push(int);
+        }
+    }
+
+    var errado = total - certo;
+    div_Grafico.innerHTML += `Você acertou ${certo} de ${total} perguntas.<br> Perguntas erradas: ${erros}`;
+    var graficoPizza = document.getElementById("graficoPizza");
+    var bidimensionalGrafico = graficoPizza.getContext('2d');
+
+    if (window.pizzaChart) {
+        window.pizzaChart.destroy();
+    }
+
+    window.pizzaChart = new Chart(bidimensionalGrafico, {
+        type: 'pie',
+        data: {
+            labels: ['Acertos', 'Erros'],
+            datasets: [{
+                data: [certo, errado],
+                backgroundColor: ['#4CAF50', '#F44336']
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    position: 'bottom' 
+                }
+            }
+        }
+    });
+}
 </script>
