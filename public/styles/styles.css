@@ -333,7 +333,8 @@ footer {
 }
 
 #p-PorqueLogin {
+    text-align: center;
     font-size: 1.15vw;
     color: #d4d0d0;
-    padding: 0 3vw;
+    margin-bottom: 2vw;
 }
