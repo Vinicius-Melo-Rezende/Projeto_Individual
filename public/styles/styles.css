@@ -301,7 +301,6 @@ footer {
 }
 
 #PorqueLogin {
-    height: 100vh;
     width: 100%;
     background: #000;
 }
@@ -316,7 +315,7 @@ footer {
 
 #conteudoPorqueLogin {
     width: 100%;
-    height: 80vh;
+    height: 100%;
     display: flex;
 }
 
@@ -333,8 +332,11 @@ footer {
 }
 
 #p-PorqueLogin {
+    width: 90%;
+    height: 50%;
     text-align: center;
     font-size: 1.15vw;
     color: #d4d0d0;
-    margin-bottom: 2vw;
+    padding-left: 11%;
+     padding-bottom: 5%;
 }
