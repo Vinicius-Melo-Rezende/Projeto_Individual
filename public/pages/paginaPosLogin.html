@@ -337,7 +337,7 @@ function grafico() {
     }
 
     var errado = total - certo;
-    div_Grafico.innerHTML += `Você acertou ${certo} de ${total} perguntas.<br> Perguntas erradas: ${erros}`;
+    div_Grafico.innerHTML = `Você acertou ${certo} de ${total} perguntas.<br> Perguntas erradas: ${erros}`;
     var graficoPizza = document.getElementById("graficoPizza");
     var bidimensionalGrafico = graficoPizza.getContext('2d');
 
