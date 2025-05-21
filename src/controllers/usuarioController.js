@@ -76,8 +76,32 @@ function cadastrar(req, res) {
             );
     }
 }
+function cadastrarGrafico(req, res) {
+    var Acertos = req.body.numAcertosServer;
+    var Erros = req.body.numErrosServer;
+    var Quiz = req.body.fkQuizServer;
+    var Usuario = req.body.fkUsuarioServer;
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.grafico(Acertos, Erros, Quiz, Usuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve ao gerar o Grafico! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarGrafico
 }

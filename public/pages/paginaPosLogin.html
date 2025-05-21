@@ -40,7 +40,6 @@
 
     <section id="apresentacao">
         <div id="bgFilter">
-
             <div id="apresentacaoContainer">
                 <div id="apresentacaoSubContainer">
                     <h2 id="h2Apresentacao">Reserve um tempo para Deus</h2>
@@ -129,7 +128,7 @@
         <div class="containerPerguntas">
             <div class="pergunta">
                 <p><br>1. Quem construiu a arca?</p>
-                <input type="radio" name="q1" value="errado"> Moisés<br>
+                <input type="radio" name="q1" value="errado">   <br>
                 <input type="radio" name="q1" value="certo"> Noé<br>
                 <input type="radio" name="q1" value="errado"> Abraão<br>
             </div>
@@ -176,7 +175,7 @@
                 <input type="radio" name="q7" value="errado"> Amarás ao próximo<br>
                 <input type="radio" name="q7" value="certo"> Não terás outros deuses diante de mim<br>
                 <input type="radio" name="q7" value="errado"> Honra teu pai e tua mãe<br>
-            </div>
+            </div>  
 
             <div class="pergunta">
                 <p><br>8. Qual profeta sobreviveu na cova dos leões graças à fé em Deus?</p>
@@ -311,7 +310,7 @@
       var aleatorio = parseInt(Math.random() * 50);
       div_txt.innerHTML += `${frases[aleatorio]}`;
     }
-function grafico() {
+     function grafico() {
     var total = 15;
     var certo = 0;
     var erros = [];
@@ -335,32 +334,39 @@ function grafico() {
             erros.push(int);
         }
     }
+            var numAcertosVar = certo;
+            var numErrosVar = erros.length;
+            var fkUsuarioVar = 1;
+            var fkQuizVar = 1;
 
-    var errado = total - certo;
-    div_Grafico.innerHTML = `Você acertou ${certo} de ${total} perguntas.<br> Perguntas erradas: ${erros}`;
-    var graficoPizza = document.getElementById("graficoPizza");
-    var bidimensionalGrafico = graficoPizza.getContext('2d');
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrarGrafico", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    numAcertosServer: numAcertosVar,
+                    numErrosServer: numErrosVar,
+                    fkQuizServer: fkQuizVar,
+                    fkUsuarioServer: fkUsuarioVar,
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-    if (window.pizzaChart) {
-        window.pizzaChart.destroy();
-    }
+                    if (resposta.ok) {
+                        alert('Informações enviadas para o banco de Dados')
+                    } else {
+                        throw "Houve um erro ao tentar enviar os dados para o banco de dados";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
 
-    window.pizzaChart = new Chart(bidimensionalGrafico, {
-        type: 'pie',
-        data: {
-            labels: ['Acertos', 'Erros'],
-            datasets: [{
-                data: [certo, errado],
-                backgroundColor: ['#4CAF50', '#F44336']
-            }]
-        },
-        options: {
-            plugins: {
-                legend: {
-                    position: 'bottom' 
-                }
+                });
+            return false;
             }
-        }
-    });
-}
 </script>
