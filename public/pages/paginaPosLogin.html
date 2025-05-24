@@ -391,7 +391,7 @@ function obterGrafico() {
                 sessionStorage.NUMERO_ACERTOS = json.numAcertos;
                 sessionStorage.NUMERO_ERROS = json.numErros;
 
-                montarGraficoPizza(); 
+                montarGrafico(); 
             });
         } else {
             resposta.text().then(texto => {
@@ -405,9 +405,9 @@ function obterGrafico() {
     return false;
 }
 
-function montarGraficoPizza() {
-    var acertos = parseInt(sessionStorage.NUMERO_ACERTOS);
-    var erros = parseInt(sessionStorage.NUMERO_ERROS);
+function montarGrafico() {
+    var acertos = sessionStorage.NUMERO_ACERTOS;
+    var erros = sessionStorage.NUMERO_ERROS;
     console.log(acertos, erros)
 
     var ctx = document.getElementById("graficoPizza").getContext("2d");
