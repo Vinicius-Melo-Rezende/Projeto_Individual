@@ -315,11 +315,6 @@ font-weight: bold;
 margin-top: 10px;
 }
 
-#graficoPizza {
-    width: 50%;
-    height: 40%;
-}
-
 #div_txt {
     color: #fff;
     font-size: 1.2vw;
@@ -337,4 +332,20 @@ margin-top: 10px;
     width: 90vw;
     height: 60vh;
     padding-top: 10vh;
+}
+
+.container-kpis {
+    display: flex;          
+    gap: 90px;              
+    padding: 20px;     
+    justify-content: center;     
+}
+
+.kpi {
+    width: 20vw;
+    height: 15vh;
+    background-color: black; 
+    border: 1px solid yellow;     
+    border-radius: 2px;     
+    text-align: center;
 }

@@ -244,6 +244,12 @@
             <button onclick="grafico()" style="margin-top: 15px;">Verificar Respostas</button><br><br>
             <p id="div_Grafico"></p>
         </div>
+            <div class="container-kpis">
+                <div class="kpi" id="kpi1">Acertos <br><br><div id="div_txt1"></div></div>
+                <div class="kpi" id="kpi2">Erros <br><br><div id="div_txt2"></div></div>
+                <div class="kpi" id="kpi3">Tentativas <br><br><div id="div_txt3"></div></div>
+            </div>
+                </div>
         <div id="grafico"><canvas id="graficoPizza"></canvas></div>
 </section>
             </div>
@@ -252,6 +258,7 @@
 </body>
 </html>
 <script>
+    var qtdtentativas = 0;
       var frases = [
       "Sejam fortes e corajosos... Versículo = Deuteronômio 31:6",
       "Graças ao grande amor do Senhor... Versículo = Lamentações 3:22-23",
@@ -310,63 +317,134 @@
       var aleatorio = parseInt(Math.random() * 50);
       div_txt.innerHTML += `${frases[aleatorio]}`;
     }
-     function grafico() {
+function grafico() {    
+    qtdtentativas++;
+    div_txt1.innerHTML = ``
+    div_txt2.innerHTML = ``
+    div_txt3.innerHTML = ``
     var total = 15;
     var certo = 0;
     var erros = [];
-
     for (var int = 1; int <= total; int++) {
-                var qtdAlternativas = document.getElementsByName(`q${int}`);
-                    var marcador = false;
-                        for (var i = 0; i < qtdAlternativas.length; i++) {
-                            if (qtdAlternativas[i].checked) {
-                                marcador = true;
-                                    if (qtdAlternativas[i].value == "certo") {
-                                        certo++;
-                                    } 
-                                        else {
-                                        erros.push(int);
-                                        }
-                                        break;
-                            }
-                        }
+        var qtdAlternativas = document.getElementsByName(`q${int}`);
+        var marcador = false;
+
+        for (var i = 0; i < qtdAlternativas.length; i++) {
+            if (qtdAlternativas[i].checked) {
+                marcador = true;
+                if (qtdAlternativas[i].value == "certo") {
+                    certo++;
+                } else {
+                    erros.push(int);
+                }
+                break;
+            }
+        }
         if (!marcador) {
             erros.push(int);
         }
     }
-            var numAcertosVar = certo;
-            var numErrosVar = erros.length;
-            var fkUsuarioVar = 1;
-            var fkQuizVar = 1;
+    div_txt1.innerHTML = `${certo}`
+    div_txt2.innerHTML = `${erros.length}`
+    div_txt3.innerHTML = `${qtdtentativas}`
+    var numAcertosVar = certo;
+    var numErrosVar = erros.length;
+    var fkUsuarioVar = 1;
+    var fkQuizVar = 1;
 
-            // Enviando o valor da nova input
-            fetch("/usuarios/cadastrarGrafico", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
+    fetch("/usuarios/cadastrarGrafico", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            numAcertosServer: numAcertosVar,
+            numErrosServer: numErrosVar,
+            fkQuizServer: fkQuizVar,
+            fkUsuarioServer: fkUsuarioVar,
+        }),
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {
+            console.log("Dados enviados com sucesso!");
+            obterGrafico();
+        } else {
+            throw "Erro ao enviar os dados para o banco";
+        }
+    })
+    .catch(function (erro) {
+        console.error("ERRO: ", erro);
+    });
+
+    return false;
+}
+
+function obterGrafico() {
+    fetch("/usuarios/obterGrafico", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                sessionStorage.NUMERO_ACERTOS = json.numAcertos;
+                sessionStorage.NUMERO_ERROS = json.numErros;
+
+                montarGraficoPizza(); 
+            });
+        } else {
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    });
+
+    return false;
+}
+
+function montarGraficoPizza() {
+    var acertos = parseInt(sessionStorage.NUMERO_ACERTOS);
+    var erros = parseInt(sessionStorage.NUMERO_ERROS);
+    console.log(acertos, erros)
+
+    var ctx = document.getElementById("graficoPizza").getContext("2d");
+
+    if (window.graficoPizzaInstance) {
+        window.graficoPizzaInstance.destroy();
+    }
+
+    window.graficoPizzaInstance = new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: ["Acertos", "Erros"],
+            datasets: [{
+                label: "Desempenho",
+                data: [acertos, erros],
+                backgroundColor: [
+                    "rgba(40, 167, 69, 0.8)",
+                    "rgba(220, 53, 69, 0.8)"
+                ],
+                borderColor: [
+                    "rgba(40, 167, 69, 1)", 
+                    "rgba(220, 53, 69, 1)"  
+                ],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
                 },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    numAcertosServer: numAcertosVar,
-                    numErrosServer: numErrosVar,
-                    fkQuizServer: fkQuizVar,
-                    fkUsuarioServer: fkUsuarioVar,
-                }),
-            })
-                .then(function (resposta) {
-                    console.log("resposta: ", resposta);
-
-                    if (resposta.ok) {
-                        alert('Informações enviadas para o banco de Dados')
-                    } else {
-                        throw "Houve um erro ao tentar enviar os dados para o banco de dados";
-                    }
-                })
-                .catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-
-                });
-            return false;
+                title: {
+                    display: true,
+                    text: 'Resultado do Quiz'
+                }
             }
+        }
+    });
+}
 </script>

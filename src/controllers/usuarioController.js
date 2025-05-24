@@ -100,8 +100,26 @@ function cadastrarGrafico(req, res) {
         );
 }
 
+function obterGrafico(req, res) {
+    usuarioModel.obterGrafico()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.json({
+                    numErros: resultado[0].numErros,
+                    numAcertos: resultado[0].numAcertos
+                });
+            } else {
+                res.status(404).send("Nenhum dado encontrado no histórico.");
+            }
+        }).catch(function (erro) {
+            console.log("Erro ao obter gráfico:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarGrafico
+    cadastrarGrafico,
+    obterGrafico
 }

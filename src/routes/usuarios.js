@@ -15,4 +15,9 @@ router.post("/autenticar", function (req, res) {
 router.post("/cadastrarGrafico", function (req, res) {
     usuarioController.cadastrarGrafico(req, res);
 });
+
+router.post("/obterGrafico", function (req, res) {
+    usuarioController.obterGrafico(req, res);
+});
+
 module.exports = router;
