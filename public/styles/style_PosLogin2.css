@@ -1,0 +1,448 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    scroll-behavior: smooth;
+}
+
+header {
+    width: 100%;
+    height: 13vh;
+    position: fixed;
+    display: flex;
+    z-index: 999;
+    transition: 0.5s ease;
+}
+
+.container-header {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.container-header:nth-child(2) {
+    width: 50%;
+}
+
+
+.container-header:nth-child(1),
+.container-header:nth-child(3) {
+    width: 25%;
+}
+
+#btnHeader {
+    background-color: #653604;
+    height: 3.6vw;
+    width: 12vw;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.8px;
+    transition: 0.2s ease;
+    font-size: 1.15vw;
+}
+
+#btnHeader:hover,
+#btnApresentacao:hover {
+    background-color: #4E2B06;
+}
+
+#navHeader {
+    color: #fff;
+    display: flex;
+    list-style: none;
+    width: 80%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.aNavHeader {
+    font-size: 1.2vw;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    scroll-margin-top: 100px;
+}
+
+.liHeader {
+    transition: 0.15s ease;
+}
+
+.liHeader:hover {
+    color: #d4d0d0;
+}
+
+#apresentacao {
+    height: 100vh;
+    width: 100%;
+    background: url('../assets/IMAGEMJESUS.png');
+    background-size: 100% 100%;
+}
+
+#bgFilter {
+    background: #000000c6;
+    height: 100%;
+    width: 100%;
+
+}
+
+#apresentacaoContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#h2Apresentacao {
+    font-size: 2.5vw;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
+
+#pApresentacao {
+    color: #ffff;
+    width: 60%;
+    font-size: 1.4vw;
+    text-align: center;
+    padding: 2.45vw 0;
+}
+
+
+#btnApresentacao {
+    background-color: #653604;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.8px;
+    transition: 0.2s ease;
+    height: 3vw;
+    width: 12vw;
+    font-size: 1vw;
+}
+
+#spanCopy {
+    color: #ffffff96;
+    font-size: 1vw;
+}
+
+#apresentacaoSubContainer {
+    height: 88%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#logo {
+    width: 6vw;
+    margin-top: 3%;
+}
+
+.livro {
+width: 600px;
+height: 400px;
+background: #fdf6e3;
+display: flex;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+border: 1px solid #ccc;
+margin: 40px auto;
+border-radius: 10px;
+overflow: hidden;
+font-family: Georgia, serif;
+}
+
+.pagina {
+width: 50%;
+padding: 30px;
+box-sizing: border-box;
+position: relative;
+}
+
+.pagina.esquerda {
+border-right: 1px solid #ddd;
+background: linear-gradient(to right, #f3eaea, #6c4545);
+}
+
+.pagina.direita {
+background: linear-gradient(to left, #f3eaea, #6c4545);
+}
+
+.pagina::before {
+content: '';
+position: absolute;
+top: 0;
+bottom: 0;
+width: 10px;
+background: rgba(0,0,0,0.05);
+}
+
+.pagina.esquerda::before {
+right: 0;
+}
+
+.pagina.direita::before {
+left: 0;
+}
+
+#livrodiv {
+    background-color: black;
+}
+
+#biblia {
+    background-color: black;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+#HistoriaDeus {
+    background-color: white;
+}
+
+#tituloJesus {
+    background-color: #CD853F;
+    width: 50vw;
+    text-align: center; 
+    border: 5px solid;
+    border-color: white;
+    border-radius: 50vw;
+    color: white;
+    font-family: 'Georgia', serif;
+}
+#textoJesus {
+    background-color: 	#CD853F;
+    border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;
+}
+#p-textoJesus {
+    text-align: center;
+    border: 5px solid;
+    border-color: white;
+    border-radius: 50vw;
+    font-size: 1.5vw;
+    font-family: 'Arial', sans-serif;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-right: 10vw;
+    padding-left: 10vw;
+    color: white;
+    font-family: 'Georgia', serif;  
+}
+#conteudoJesus {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5vw;
+}
+
+#divFundJesus {
+    background-color: black;
+}
+
+#divFundPerguntas {
+    background-color: black;
+        padding: 6vw;
+}
+
+#divTituloRelatos {
+    background-color: black;
+    text-align: center;
+    padding-top: 8vw;
+    padding-left: 18vw;
+}
+
+#TituloMembros {
+    color: white;
+     border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;
+    height: 5vw;
+    width: 60vw;
+    text-align: center;
+    padding-top: 0.7vw;
+    font-family: 'Georgia', serif;
+}
+
+#relatoImagem1 {
+         border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;
+    height: 15vw;
+    width: 15vw;
+}
+
+#relatoTexto1 {
+    color: white;
+}
+
+#relatoImagem2 {
+         border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;
+    height: 15vw;
+    width: 15vw;
+}
+
+#relatoTexto2 {
+    color: white;
+}
+
+#titi{
+    color: white;
+    text-align: center;
+    padding-bottom: 0.5vw;
+    font-family: 'Georgia', serif;
+}
+
+#titi2{
+    text-align: center;
+    color: white;
+    padding-bottom: 0.5vw;
+    font-family: 'Georgia', serif;
+}
+
+#relatoImagem3 {
+         border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;
+    height: 15vw;
+    width: 15vw;
+}
+
+#titi3{
+    text-align: center;
+    color: white;
+    padding-bottom: 0.5vw;
+    font-family: 'Georgia', serif;
+}
+
+#relatoTexto3 {
+    color: white;
+}
+
+#relato1, #relato2, #relato3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    margin-top: 5%;
+}
+
+.containerTituloP{
+    width: 70%;
+}
+
+.versiculo {
+    font-size: 0.7vw;
+}
+
+#textoLivro {
+    padding-top: 0.7vw;
+}
+
+#textoLivro2 {
+    padding-top: 0.7vw;
+}
+
+#containerQuiz {
+    height: 12vw;
+     background-color: black;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+#botaoQuiz {
+    width: 15vw;
+    height: 4vw;
+    background-color: #CD853F;
+    border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;
+}
+
+#textoQuiz {
+    text-align: center;
+    color: white;
+}
+
+#questoes {
+    background-color: black;
+    color: white;
+    padding-bottom:5vw;
+    padding-left: 5vw;
+}
+
+#botaoGrafico {
+    background-color: #CD853F;
+    width: 20vw;
+    height: 5vh;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;
+}
+
+.kpi {
+    width: 20vw;
+    height: 15vh;
+    background-color: black; 
+    border: 1px solid blue;     
+    border-radius: 2px;     
+    text-align: center;
+}
+
+#containerGrafico {
+    background-color: black;
+}
+
+#buttonComeco {
+    color: white;
+    background-color: black;
+    border: 2px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;   
+    text-align: center;
+}
+
+#div_txt {
+    color: white;
+    font-family: 'Georgia', serif;
+}
+
+.tituloPergunta {
+    font-size: 2vw;
+    font-family: 'Georgia', serif;
+    padding-bottom: 2vw;
+}
+
+
+#h2quiz {
+    color: white;
+    font-size: 4vw;
+    font-family: 'Georgia', serif;
+}
+
+#divbotaoGrafico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pergunta{
+    padding-left: 5vw;
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style_Quiz.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Pagina Dashboard</title>
+</head>
+
+<body onload="obterGrafico()">
+    <div id="fundTituloInicio">
+        <div id="containerTituloInicio">
+            <h2 id="tituloInicio">Pagina Resultados</h2>
+        </div>
+    </div>
+<div id="containertudo">
+    <div id="caixa1">
+        <div id="divTextoGrafico">
+            <p id="TextoGrafico">
+                O resultado do quiz não define o tamanho da sua fé. Acertar muitas perguntas mostra que você conhece bastante sobre Deus,
+                 mas a fé vai muito além do conhecimento. Ter fé é confiar, acreditar, buscar uma relação viva com Ele. Mesmo que você não acerte tudo, o mais importante é o desejo do seu coração de se aproximar de Deus. O conhecimento pode crescer com o tempo, mas a fé começa com a abertura do coração.
+            </p>
+        </div>
+    </div>
+    <div id="caixa2">
+        <h2 id="h2UltimoQuiz">Resultado do Ultimo Quiz</h2>
+                <div id="conteinerGraficoPizza">
+                    <canvas id="graficoPizza"></canvas>
+                </div>
+                <div id="divSelect">
+                    <h2 id="SeletorMeses">Selecione os Meses:</h2><br>
+                    <select name="opcoes" id="opcoes">
+                        <option value="3">3</option>
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div id="conteinerGraficoLinha">
+                    <canvas id="linha"></canvas>
+                </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+<script>
+    var selectOpt = document.getElementById('opcoes')
+
+
+    function obterGrafico() {
+        fetch("/usuarios/obterGrafico", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    sessionStorage.NUMERO_ACERTOS = json.numAcertos;
+                    sessionStorage.NUMERO_ERROS = json.numErros;
+
+                    montarGrafico();
+                });
+            } else {
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+
+        return false;
+    }
+
+    function montarGrafico() {
+        var acertos = sessionStorage.NUMERO_ACERTOS;
+        var erros = sessionStorage.NUMERO_ERROS;
+        console.log(acertos, erros)
+
+        var ctx = document.getElementById("graficoPizza").getContext("2d");
+
+        if (window.graficoPizzaInstance) {
+            window.graficoPizzaInstance.destroy();
+        }
+
+        window.graficoPizzaInstance = new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: ["Acertos", "Erros"],
+                datasets: [{
+                    label: "Desempenho",
+                    data: [acertos, erros],
+                    backgroundColor: [
+                        "rgba(40, 167, 69, 0.8)",
+                        "rgba(220, 53, 69, 0.8)"
+                    ],
+                    borderColor: [
+                        "rgba(40, 167, 69, 1)",
+                        "rgba(220, 53, 69, 1)"
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Resultado do Quiz'
+                    }
+                }
+            }
+        });
+    }
+
+    function obterGrafico2(selectVal) {
+        var listaValores = [];
+        var opcoesVar = selectVal;
+        console.log(opcoesVar)
+        fetch("/usuarios/obterGrafico2", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                opcoesServer: opcoesVar,
+            }),
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    for (let i = 0; i < json.length; i++) {
+                        listaValores.push(json[i])
+                    }
+                    plotarGraficoLinha(listaValores);
+                });
+            } else {
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+
+        return false;
+    }
+    function plotarGraficoLinha(listaValores) {
+        var listaQntd = [];
+        for (let i = 1; i <= listaValores.length; i++) {
+            listaQntd.push(i);
+        }
+
+        console.table(listaValores);
+        console.table('------------------------');
+        console.table(listaQntd);
+
+        if (window.graficoLinhaInstance) {
+            window.graficoLinhaInstance.destroy();
+        }
+
+        let dados = {
+            labels: listaQntd,
+            datasets: [{
+                label: 'Quantidade de Acertos',
+                data: listaValores,
+                backgroundColor: 'lightblue',
+                borderColor: 'blue',
+                borderWidth: 2,
+                fill: false
+            }]
+        };
+
+        const config = {
+            type: "line",
+            data: dados,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: "#fff"
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#fff",
+                        },
+                    },
+                    y: {
+                        ticks: {
+                            color: "#fff",
+                        },
+                    },
+                },
+            },
+        };
+        let mychart = new Chart(document.getElementById('linha'), config);
+    }
+
+
+    selectOpt.addEventListener('change', function () {
+        obterGrafico2(selectOpt.value);
+    })
+</script>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DivineTech</title>
+    <link rel="stylesheet" href="../styles/styles_PosLogin.css">
+    <link rel="stylesheet" href="../styles/style_PosLogin2.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container-header">
+            <img src="../assets/logo.png" id="logo">
+        </div>
+        <div class="container-header">
+            <nav id="navHeader">
+                <a href="#apresentacao" id="aInicio" class="aNavHeader">
+                    <li class="liHeader">Início</li>
+                </a>
+                <a href="#biblia" id="aLinhaDaVida" class="aNavHeader">
+                    <li class="liHeader">Versículos</li>
+                </a>
+                <a href="#HistoriaDeus" id="aMissao" class="aNavHeader">
+                    <li class="liHeader">Historia de Jésus</li>
+                </a>
+                <a href="#divTituloRelatos" id="aInicio" class="aNavHeader">
+                    <li class="liHeader">Relatos</li>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="apresentacao">
+        <div id="bgFilter">
+            <div id="apresentacaoContainer">
+                <div id="apresentacaoSubContainer">
+                    <h2 id="h2Apresentacao">RESERVE UM TEMPO PARA DEUS</h2>
+                    <button onclick="sortear()" id="buttonComeco">Gerar a frase do Dia!</button><br>
+                    <div id="div_txt"></div>
+                </div>
+                <span id="spanCopy">© 2025 DivineTech. Todos os direitos reservados.</span>
+            </div>
+        </div>
+    </section>
+
+<div id="biblia">
+  <div class="livro">
+    <div class="pagina esquerda" >
+      <h2>Isaías</h2>
+      <p id="textoLivro">Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus;
+         eu te fortaleço, e te ajudo, e te sustento com a destra da minha justiça.<span class="versiculo">Isaías 41:10</span><br><br>
+        Deus nunca se cansa ou falha. Ele dá força aos que estão fracos e renova os que confiam nEle. Mesmo os mais fortes se esgotam,
+         mas quem espera no Senhor ganha novas forças e segue em frente com firmeza.<span class="versiculo">Isaías 40:28-31</span>
+        </p>
+    </div>
+    <div class="pagina direita">
+      <h2>Coríntios</h2>
+      <p id="textoLivro2">“O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha.
+        Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor.
+        O amor não se alegra com a injustiça, mas se alegra com a verdade.
+        Tudo sofre, tudo crê, tudo espera, tudo suporta.<span class="versiculo">1 Coríntios 13:4-7</span><br><br>
+        Assim que, se alguém está em Cristo, nova criatura é: as coisas velhas já passaram; eis que tudo se fez novo.<span class="versiculo">2 Coríntios 5:17</span>
+        </p>
+    </div>
+  </div>
+</div>
+<div id="HistoriaDeus">
+    <div id="conteudoJesus">
+    <h2 id="tituloJesus">Historia de Jesus</h2>
+    </div>
+</div>
+<div id="divFundJesus">
+        <div id="textoJesus">
+            <p id="p-textoJesus">
+               Jesus nasceu em Belém, filho de Maria e José. Seu nascimento foi considerado um milagre, pois, segundo a tradição cristã, foi gerado pelo Espírito Santo. Desde pequeno, demonstrava sabedoria e ligação com Deus. Por volta dos 30 anos, foi batizado por João Batista e começou a pregar em várias cidades, anunciando o Reino de Deus e convidando as pessoas ao arrependimento, à fé e ao amor ao próximo.<br>
+Durante seu ministério, realizou muitos milagres, como curas, multiplicação de pães e peixes, e até ressuscitação de mortos. Ensinava por meio de parábolas e destacava valores como o perdão, a humildade e a misericórdia. Suas ações e palavras atraíam multidões, mas também provocavam a oposição dos líderes religiosos da época.<br>
+Na última semana de sua vida, entrou em Jerusalém e foi recebido com entusiasmo pelo povo. Porém, foi traído por Judas Iscariotes, um de seus discípulos, preso e condenado à morte por crucificação, mesmo sem culpa comprovada. Morreu na cruz, e os cristãos creem que esse ato foi um sacrifício para a salvação da humanidade.<br>
+Três dias após sua morte, Jesus ressuscitou e apareceu a vários de seus seguidores. Depois de quarenta dias, subiu aos céus. Sua vida, ensinamentos, morte e ressurreição são o fundamento da fé cristã, e sua mensagem continua influenciando o mundo até hoje.
+            </p>
+        </div>
+</div>
+<div id="divTituloRelatos">
+    <h2 id="TituloMembros">Relatos de pessoas que foram salvas por Deus</h2>
+</div>
+        <div id="divFundPerguntas">
+            <div id="relato1">
+                <img src="../assets/relato1.png" id="relatoImagem1">
+                <div class="containerTituloP">
+                    <h2 id="titi">C.S. Lewis – Escritor de As Crônicas de Nárnia</h2>
+                    <p id="relatoTexto1">Lewis foi um ateu convicto durante muitos anos, professor em Oxford e crítico da fé cristã.
+                        Após intensas reflexões e conversas com amigos como J.R.R. Tolkien (autor de O Senhor dos Anéis), Lewis se converteu ao cristianismo. Ele descreve essa jornada em seu livro Surpreendido pela Alegria.<br>
+                        Impacto: Tornou-se um dos maiores defensores da fé cristã no século 20, com obras como Cristianismo Puro e Simples, que influenciaram milhões.
+                    </p>
+                </div>
+            </div>
+            <div id="relato2">
+               <img src="../assets/relato2.png" id="relatoImagem2">
+               <div class="containerTituloP">
+                    <h2 id="titi2">Nicky Cruz – Ex-líder de gangue em Nova York</h2>
+                    <p id="relatoTexto2">
+                     Nicky se envolveu com violência desde cedo. Tornou-se líder da gangue “Mau-Maus” em Nova York, envolvido com crimes, drogas e brutalidade.<br>
+                     Foi confrontado por um pastor chamado David Wilkerson, que lhe falou do amor de Jesus. Após resistir várias vezes, Nicky teve um encontro com Deus e foi profundamente transformado.<br>
+                     Tornou-se evangelista, escreveu o livro A Cruz e o Punhal (junto com Wilkerson), e desde então prega ao redor do mundo, especialmente em áreas de risco.
+                    </p>
+                </div>
+            </div>
+            <div id="relato3">
+                <img src="../assets/relato3.png" id="relatoImagem3">
+                 <div class="containerTituloP">
+                     <h2 id="titi3">Kirk Franklin – Cantor e produtor gospel</h2>
+                     <p id="relatoTexto3">
+                         Kirk teve uma infância difícil, abandonado pelos pais e criado pela avó. Envolveu-se com má conduta e passou por várias crises pessoais, inclusive com vícios e pornografia.<br>
+                         Teve um reencontro com Deus que mudou sua vida e carreira. Tornou-se um dos maiores nomes da música gospel no mundo, levando mensagens de fé, esperança e restauração a milhões de pessoas.
+                     </p>
+                 </div>
+            </div>
+        </div>
+<div id="containerQuiz" style="display: block;">
+    <p id="textoQuiz">Temos um quiz especial no nosso site com perguntas sobre Deus, a Bíblia e a fé cristã.<br>
+É uma maneira divertida e reflexiva de testar seus conhecimentos e aprender ainda mais sobre a Palavra de Deus!<br><br>
+     <button onclick="quiz()" id="botaoQuiz">Iniciar Quiz</button>
+</div>
+<div id="questoes" style="display: none;">
+           <h2 id="h2quiz">Quiz Bíblico</h2>
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>1. Quem construiu a arca?</p>
+                <input type="radio" name="q1" value="errado">   <br>
+                <input type="radio" name="q1" value="certo"> Noé<br>
+                <input type="radio" name="q1" value="errado"> Abraão<br>
+            </div>
+    
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>2. Quantos evangelhos há no Novo Testamento?</p>
+                <input type="radio" name="q2" value="certo"> 4<br>
+                <input type="radio" name="q2" value="errado"> 5<br>
+                <input type="radio" name="q2" value="errado"> 12<br>
+            </div>
+    
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>3. Qual é o primeiro livro da Bíblia?</p>
+                <input type="radio" name="q3" value="certo"> Gênesis<br>
+                <input type="radio" name="q3" value="errado"> Êxodo<br>
+                <input type="radio" name="q3" value="errado"> Salmos<br>
+            </div>
+            
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>4. Quem foi lançado na cova dos leões?</p>
+                <input type="radio" name="q4" value="errado"> Moisés<br>
+                <input type="radio" name="q4" value="certo"> Daniel<br>
+                <input type="radio" name="q4" value="errado"> Elias<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>5. Qual o nome da mãe de Jesus?</p>
+                <input type="radio" name="q5" value="certo"> Maria<br>
+                <input type="radio" name="q5" value="errado"> Isabel<br>
+                <input type="radio" name="q5" value="errado"> Marta<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>6. Qual discípulo andou sobre as águas com Jesus?</p>
+                <input type="radio" name="q6" value="errado"> João<br>
+                <input type="radio" name="q6" value="errado"> André<br>
+                <input type="radio" name="q6" value="errado"> Mateus<br>
+                <input type="radio" name="q6" value="certo"> Pedro<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>7. Qual o primeiro mandamento dos Dez Mandamentos?</p>
+                <input type="radio" name="q7" value="errado"> Não roubarás<br>
+                <input type="radio" name="q7" value="errado"> Amarás ao próximo<br>
+                <input type="radio" name="q7" value="certo"> Não terás outros deuses diante de mim<br>
+                <input type="radio" name="q7" value="errado"> Honra teu pai e tua mãe<br>
+            </div>  
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>8. Qual profeta sobreviveu na cova dos leões graças à fé em Deus?</p>
+                <input type="radio" name="q8" value="errado"> Elias<br>
+                <input type="radio" name="q8" value="certo"> Daniel<br>
+                <input type="radio" name="q8" value="errado"> Jeremias<br>
+                <input type="radio" name="q8" value="errado"> Isaías<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br><br>9. Qual animal falou com Eva no Jardim do Éden?</p>
+                <input type="radio" name="q9" value="errado"> Leão<br>
+                <input type="radio" name="q9" value="certo"> Cobra<br>
+                <input type="radio" name="q9" value="errado"> Águia<br>
+                <input type="radio" name="q9" value="errado"> Cordeiro<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>10. O que Deus criou no primeiro dia da criação?</p>
+                <input type="radio" name="q10" value="errado"> Os animais<br>
+                <input type="radio" name="q10" value="errado"> O ser humano<br>
+                <input type="radio" name="q10" value="certo"> A luz<br>
+                <input type="radio" name="q10" value="errado"> As plantas<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>11. Quem traiu Jesus por 30 moedas de prata?</p>
+                <input type="radio" name="q11" value="errado"> Pedro<br>
+                <input type="radio" name="q11" value="errado"> João<br>
+                <input type="radio" name="q11" value="certo"> Judas<br>
+                <input type="radio" name="q11" value="errado"> Tomé<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>12. Quem guiou o povo de Israel pelo deserto?</p>
+                <input type="radio" name="q12" value="errado"> Elias<br>
+                <input type="radio" name="q12" value="certo"> Moisés<br>
+                <input type="radio" name="q12" value="errado"> Josué<br>
+                <input type="radio" name="q12" value="errado"> Jacó<br>
+            </div>
+            
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>13. Em qual cidade Jesus nasceu?</p>
+                <input type="radio" name="q13" value="errado"> Nazaré<br>
+                <input type="radio" name="q13" value="errado"> Jerusalém<br>
+                <input type="radio" name="q13" value="certo"> Belém<br>
+                <input type="radio" name="q13" value="errado"> Egito<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>14. Qual discípulo negou Jesus três vezes?</p>
+                <input type="radio" name="q14" value="errado"> João<br>
+                <input type="radio" name="q14" value="errado"> Judas<br>
+                <input type="radio" name="q14" value="errado"> Tomé<br>
+                <input type="radio" name="q14" value="certo"> Pedro<br>
+            </div>
+
+            <div class="pergunta">
+                <p class="tituloPergunta"><br>15. Quantos livros tem a Bíblia?</p>
+                <input type="radio" name="q15" value="errado"> 27<br>
+                <input type="radio" name="q15" value="errado"> 39<br>
+                <input type="radio" name="q15" value="certo"> 66<br>
+                <input type="radio" name="q15" value="errado"> 73<br>
+            </div>
+        <div id="divbotaoGrafico">
+            <button onclick="grafico()" id="botaoGrafico">Verificar Respostas</button>
+        </div>
+</div>
+</body>
+<script>
+       var qtdtentativas = 0;
+      var frases = [
+      "Sejam fortes e corajosos... Versículo = Deuteronômio 31:6",
+      "Graças ao grande amor do Senhor... Versículo = Lamentações 3:22-23",
+      "Por isso não tema... Versículo = Isaías 41:10",
+      "Se Deus é por nós... Romanos 8:31",
+      "Porque eu bem sei os pensamentos... Jeremias 29:11",
+      "Deus é o nosso refúgio... Salmos 46:1",
+      "Seja forte e corajoso!... Josué 1:9",
+      "Elevo os meus olhos para os montes...<br>Salmos 121:1-2",
+      "Confia no Senhor de todo o teu coração...<br>Provérbios 3:5-6",
+      "Guardemos firme a confissão da esperança...<br>Hebreus 10:23",
+      "Eis que Deus é a minha salvação...<br>Isaías 12:2",
+      "O choro pode durar uma noite...<br>Salmos 30:5",
+      "Deus usa as provações para revelar o seu poder.",
+      "Quando você pensa em desistir, Deus já preparou a saída.",
+      "Não há tempestade que Deus não possa acalmar.",
+      "Cada cicatriz mostra que Deus curou.",
+      "Você é mais forte do que imagina...",
+      "Mesmo quebrado, Deus ainda pode te usar.",
+      "A prova é dura, mas o propósito é maior.",
+      "Deus transforma lágrimas em força e dor em fé.",
+      "O amanhã pertence a Deus, então descanse hoje.",
+      "Deus faz florescer o deserto da sua alma.",
+      "Tenha esperança: o melhor de Deus ainda está por vir.",
+      "Onde há fé, há esperança...",
+      "Deus nunca te deixará de mãos vazias.",
+      "A espera pode ser longa, mas Deus nunca esquece...",
+      "O recomeço de Deus é melhor que qualquer final sem Ele.",
+      "Em Deus, não existem causas perdidas.",
+      "O tempo de Deus cura tudo.",
+      "Deus é especialista em tornar sonhos realidade.",
+      "Agradeça, mesmo sem entender...",
+      "Deus te criou com um propósito único.",
+      "A tua história nas mãos de Deus é um testemunho.",
+      "Tudo coopera para o bem daqueles que amam a Deus.",
+      "O que hoje parece confuso...",
+      "O que vem de Deus traz paz, não confusão.",
+      "Sirva a Deus com alegria...",
+      "Nada é em vão quando está nas mãos de Deus.",
+      "A vida com Deus não é perfeita, mas é plena.",
+      "O maior presente é saber que Deus está contigo.",
+      "Deus é maior que qualquer medo.",
+      "Quando oramos, o céu se move.",
+      "A oração é a chave que abre portas.",
+      "Deus está no controle...",
+      "A presença de Deus é tudo o que você precisa.",
+      "A palavra de Deus é lâmpada para os seus pés.",
+      "Deus não olha para a aparência...",
+      "Confie, mesmo sem entender...",
+      "Caminhe com fé, mesmo sem ver o caminho.",
+      "Quando você crê, Deus age."
+    ];
+
+    function sortear() {
+      div_txt.innerHTML = ``
+      var aleatorio = parseInt(Math.random() * 50);
+      div_txt.innerHTML += `${frases[aleatorio]}`;
+    }
+    function quiz() {
+       containerQuiz.style.display = "none";
+       questoes.style.display = "block"
+    }
+    
+    function grafico() {    
+    qtdtentativas++;
+    var total = 15;
+    var certo = 0;
+    var erros = [];
+    for (var int = 1; int <= total; int++) {
+        var qtdAlternativas = document.getElementsByName(`q${int}`);
+        var marcador = false;
+
+        for (var i = 0; i < qtdAlternativas.length; i++) {
+            if (qtdAlternativas[i].checked) {
+                marcador = true;
+                if (qtdAlternativas[i].value == "certo") {
+                    certo++;
+                } else {
+                    erros.push(int);
+                }
+                break;
+            }
+        }
+        if (!marcador) {
+            erros.push(int);
+        }
+    }
+    var numAcertosVar = certo;
+    var numErrosVar = erros.length;
+    var fkUsuarioVar = 1;
+    var fkQuizVar = 1;
+            window.location = "../pages/paginaQuiz.html";
+    fetch("/usuarios/cadastrarGrafico", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            numAcertosServer: numAcertosVar,
+            numErrosServer: numErrosVar,
+            fkQuizServer: fkQuizVar,
+            fkUsuarioServer: fkUsuarioVar,
+        }),
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {
+            console.log("Dados enviados com sucesso!");
+        } else {
+            throw "Erro ao enviar os dados para o banco";
+        }
+    })
+    .catch(function (erro) {
+        console.error("ERRO: ", erro);
+    });
+    return false;
+    }
+</script>
+<script src="../scripts/index_PosLogin.js"></script>

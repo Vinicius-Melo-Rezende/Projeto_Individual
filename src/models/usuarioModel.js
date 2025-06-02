@@ -41,9 +41,17 @@ function obterGrafico() {
     return database.executar(instrucaoSql);
 }
 
+function obterGrafico2(opcoes) {
+    var instrucaoSql = `
+      SELECT numAcertos FROM Historico ORDER BY idHistorico DESC LIMIT ${opcoes}
+    `;
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     grafico,
-    obterGrafico
+    obterGrafico,
+    obterGrafico2
 };

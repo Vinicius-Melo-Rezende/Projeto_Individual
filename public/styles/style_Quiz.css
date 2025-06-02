@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+}
+
+#containerTituloInicio {
+    height: 8vh;
+    width: 97vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 1vw;
+    background-color: black;
+    border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 40vw;
+}
+
+#tituloInicio {
+    color: white;
+    font-size: 3vw;
+}
+
+#conteinerGraficoLinha {
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteinerGraficoPizza {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#graficoPizza{
+    width: 40% !important;
+    height: 70% !important;
+}
+
+#linha {
+    background-color: white;
+}
+
+#tituloPizza {
+    color: white;
+    height: 10vh;
+    width: 89vw;
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+#containerTituloPizza { 
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96vw;
+}
+
+#containertudo {
+    display: flex;
+    height: 100vh;
+    background-color: black;
+} 
+
+#caixa1 {
+    width: 50vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#caixa2 {
+    width: 50vw;
+    height: 100vh;
+    background-color: black;
+    border: 5px solid;
+    border-color: #CD853F;
+    padding-top: 1vh;
+}
+
+#fundTituloInicio {
+    background-color: black;
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2vh;
+}
+
+#divTextoGrafico {
+    background-color: black;
+    height: 70vh;
+    width: 40vw;    
+    color: white;
+    border: 5px solid;
+    border-color: #CD853F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#TextoGrafico {
+    text-align: center;
+    font-size: 1.5vw;
+    font-family: 'Georgia', serif;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+
+}
+
+#h2UltimoQuiz {
+    color: white;
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+#divSelect {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+#SeletorMeses {
+    color: white;
+    font-family: 'Georgia', serif;
+}
+
+#opcoes {
+    border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 40vw;
+    background-color: #CD853F;  
+    color: black;
+}

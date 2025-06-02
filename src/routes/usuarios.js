@@ -20,4 +20,8 @@ router.post("/obterGrafico", function (req, res) {
     usuarioController.obterGrafico(req, res);
 });
 
+router.post("/obterGrafico2", function (req, res) {
+    usuarioController.obterGrafico2(req, res);
+});
+
 module.exports = router;

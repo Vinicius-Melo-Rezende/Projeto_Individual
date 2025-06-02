@@ -117,9 +117,26 @@ function obterGrafico(req, res) {
         });
 }
 
+function obterGrafico2(req, res) {
+    var opcoes = req.body.opcoesServer;
+
+    usuarioModel.obterGrafico2(opcoes)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+              res.json(resultado);
+            } else {
+                res.status(404).send("Nenhum dado encontrado no histórico.");
+            }
+        }).catch(function (erro) {
+            console.log("Erro ao obter gráfico:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     cadastrarGrafico,
-    obterGrafico
+    obterGrafico,
+    obterGrafico2
 }
