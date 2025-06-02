@@ -193,10 +193,6 @@ right: 0;
 left: 0;
 }
 
-#livrodiv {
-    background-color: black;
-}
-
 #biblia {
     background-color: black;
     padding-top: 10vh;
@@ -286,7 +282,7 @@ left: 0;
 }
 
 #relatoImagem2 {
-         border: 5px solid;
+    border: 5px solid;
     border-color: #CD853F;
     border-radius: 50vw;
     height: 15vw;
