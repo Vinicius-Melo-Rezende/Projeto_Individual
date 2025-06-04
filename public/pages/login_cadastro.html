@@ -146,7 +146,7 @@
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO entrar()!")
-
+                
                 if (resposta.ok) {
                     console.log(resposta);
 
@@ -159,11 +159,10 @@
                         setTimeout(function () {
                             window.location = "../pages/paginaPosLogin2.html";
                         }, 1000); // apenas para exibir o loading
-
                     });
 
                 } else {
-
+                    alert('Senha ou Email estão incorretos')
                     console.log("Houve um erro ao tentar realizar o login!");
 
                     resposta.text().then(texto => {

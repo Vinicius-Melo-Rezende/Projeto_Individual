@@ -15,6 +15,21 @@
             <h2 id="tituloInicio">Pagina Resultados</h2>
         </div>
     </div>
+<div id="containerKPIS">
+    <div id="Kpi1">
+        <h2 id="TituloKPI1">Porcetagem de Acertos</h2><br>
+        <div id="div_KPI1"></div>
+
+    </div>
+    <div id="Kpi2">
+        <h2 id="TituloKPI2">Quantidade de Acertos</h2><br>
+        <div id="div_KPI2"></div>
+    </div>
+    <div id="Kpi3">
+        <h2 id="TituloKPI3">Quantidade de Erros</h2><br>
+        <div id="div_KPI3"></div>
+    </div>
+</div>
 <div id="containertudo">
     <div id="caixa1">
         <div id="divTextoGrafico">
@@ -29,8 +44,9 @@
                 <div id="conteinerGraficoPizza">
                     <canvas id="graficoPizza"></canvas>
                 </div>
+                <h2 id="tituloHistorico">Historico do Quiz</h2>
                 <div id="divSelect">
-                    <h2 id="SeletorMeses">Selecione os Meses:</h2><br>
+                    <h2 id="SeletorMeses">Selecione quantos historicos quer ver:</h2><br>
                     <select name="opcoes" id="opcoes">
                         <option value="3">3</option>
                         <option value="6">6</option>
@@ -79,6 +95,10 @@
     function montarGrafico() {
         var acertos = sessionStorage.NUMERO_ACERTOS;
         var erros = sessionStorage.NUMERO_ERROS;
+        var porcetagemKPI1 = ((Number(acertos) / 15) * 100).toFixed(0);
+        div_KPI1.innerHTML = `${porcetagemKPI1}%`
+        div_KPI2.innerHTML = `${acertos}`
+        div_KPI3.innerHTML = `${erros}`
         console.log(acertos, erros)
 
         var ctx = document.getElementById("graficoPizza").getContext("2d");
