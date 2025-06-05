@@ -35,8 +35,9 @@
         <div id="divTextoGrafico">
             <p id="TextoGrafico">
                 O resultado do quiz não define o tamanho da sua fé. Acertar muitas perguntas mostra que você conhece bastante sobre Deus,
-                 mas a fé vai muito além do conhecimento. Ter fé é confiar, acreditar, buscar uma relação viva com Ele. Mesmo que você não acerte tudo, o mais importante é o desejo do seu coração de se aproximar de Deus. O conhecimento pode crescer com o tempo, mas a fé começa com a abertura do coração.
-            </p>
+                 mas a fé vai muito além do conhecimento. Ter fé é confiar, acreditar, buscar uma relação viva com Ele. Mesmo que você não acerte tudo, o mais importante é o desejo do seu coração de se aproximar de Deus. O conhecimento pode crescer com o tempo, mas a fé começa com a abertura do coração.<br><br><br><br><br>
+                <button onclick="voltar()" id="BotaoVoltar">Voltar</button>
+                </p>
         </div>
     </div>
     <div id="caixa2">
@@ -65,6 +66,9 @@
 <script>
     var selectOpt = document.getElementById('opcoes')
 
+    function voltar() {
+        window.location = "../pages/paginaPosLogin2.html";
+    }
 
     function obterGrafico() {
         fetch("/usuarios/obterGrafico", {
@@ -172,13 +176,13 @@
     }
     function plotarGraficoLinha(listaValores) {
         var listaQntd = [];
-        for (let i = 1; i <= listaValores.length; i++) {
-            listaQntd.push(i);
+        for (let i = 0; i <= listaValores.length - 1; i++) {
+            listaQntd.push(listaValores[i]);
         }
 
-        console.table(listaValores);
-        console.table('------------------------');
-        console.table(listaQntd);
+        console.log(listaValores);
+        console.log('------------------------');
+        console.log(listaQntd);
 
         if (window.graficoLinhaInstance) {
             window.graficoLinhaInstance.destroy();
@@ -195,28 +199,27 @@
                 fill: false
             }]
         };
-
-        const config = {
+        let config = {
             type: "line",
-            data: dados,
+            data: [listaQntd],
             options: {
                 responsive: true,
                 plugins: {
                     legend: {
                         labels: {
-                            color: "#fff"
+                            color: "#000"
                         }
                     }
                 },
                 scales: {
                     x: {
                         ticks: {
-                            color: "#fff",
+                            color: "#000",
                         },
                     },
                     y: {
                         ticks: {
-                            color: "#fff",
+                            color: "#000",
                         },
                     },
                 },

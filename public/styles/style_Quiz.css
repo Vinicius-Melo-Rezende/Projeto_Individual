@@ -230,3 +230,14 @@ border-radius: 40vw;
     margin-left: 15vw;
     margin-top: 3vh;
 }
+
+#BotaoVoltar {
+    background-color: #CD853F;
+    width: 20vw;
+    height: 5vh;
+    font-size: 1.5vw;
+    font-family: 'Georgia', serif;
+    border: 2px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;
+}
