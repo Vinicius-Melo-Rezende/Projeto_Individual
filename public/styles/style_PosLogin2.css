@@ -270,9 +270,8 @@ left: 0;
 }
 
 #relatoImagem1 {
-         border: 5px solid;
+    border: 5px solid;
     border-color: #CD853F;
-    border-radius: 50vw;
     height: 15vw;
     width: 15vw;
 }
@@ -284,7 +283,6 @@ left: 0;
 #relatoImagem2 {
     border: 5px solid;
     border-color: #CD853F;
-    border-radius: 50vw;
     height: 15vw;
     width: 15vw;
 }
@@ -306,11 +304,10 @@ left: 0;
     padding-bottom: 0.5vw;
     font-family: 'Georgia', serif;
 }
-
+    
 #relatoImagem3 {
-         border: 5px solid;
+    border: 5px solid;
     border-color: #CD853F;
-    border-radius: 50vw;
     height: 15vw;
     width: 15vw;
 }
@@ -362,6 +359,7 @@ left: 0;
     width: 15vw;
     height: 4vw;
     background-color: #CD853F;
+    cursor: pointer;
     border: 5px solid;
     border-color: #CD853F;
     border-radius: 50vw;
@@ -410,6 +408,8 @@ left: 0;
     color: white;
     background-color: black;
     border: 2px solid;
+    width: 15vw;
+    cursor: pointer;
     border-color: #CD853F;
     border-radius: 50vw;   
     text-align: center;

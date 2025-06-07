@@ -201,7 +201,7 @@ header {
     justify-content: space-around;
     flex-wrap: wrap;
     transition: 0.3s ease-in;
-    height: 50vh;
+    height: 70vh;
 }
 
 .containerMVV:hover {
