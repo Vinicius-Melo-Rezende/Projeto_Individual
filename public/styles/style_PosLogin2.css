@@ -442,3 +442,22 @@ left: 0;
 .pergunta{
     padding-left: 5vw;
 }
+
+#videoFundo {
+    height: 70vh;
+    width: 30vw;
+    border: 5px solid;
+    border-color: #CD853F;
+    border-radius: 50vw;  
+}
+
+#videoAnjo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5vh;
+}
+
+#divFundVideo {
+    background-color: black;
+}
