@@ -25,6 +25,7 @@ header {
 
 .container-header:nth-child(2) {
     width: 50%;
+    display: contents;
 }
 
 
@@ -460,4 +461,14 @@ left: 0;
 
 #divFundVideo {
     background-color: black;
+}
+
+#perfilIcon {
+    width: 3.5vw;
+    margin-right: 3vw;
+} 
+
+#setalIcon {
+    width: 2.3vw;
+    cursor: pointer;
 }
