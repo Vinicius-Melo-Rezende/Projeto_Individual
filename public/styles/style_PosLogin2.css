@@ -414,6 +414,7 @@ left: 0;
     border-color: #CD853F;
     border-radius: 50vw;   
     text-align: center;
+    margin-top: 2vh;
 }
 
 #div_txt {
@@ -446,10 +447,10 @@ left: 0;
 
 #videoFundo {
     height: 70vh;
-    width: 30vw;
+    width: 20vw;
     border: 5px solid;
     border-color: #CD853F;
-    border-radius: 50vw;  
+    border-radius: 10vw;  
 }
 
 #videoAnjo {
