@@ -171,37 +171,40 @@
         }).catch(function (erro) {
             console.log(erro);
         });
-
+ 
         return false;
     }
+    let mychart2;
     function plotarGraficoLinha(listaValores) {
-        var listaQntd = [];
-        for (let i = 0; i <= listaValores.length - 1; i++) {
-            listaQntd.push(listaValores[i]);
-        }
+        let labels = [];
 
         console.log(listaValores);
-        console.log('------------------------');
-        console.log(listaQntd);
 
-        if (window.graficoLinhaInstance) {
-            window.graficoLinhaInstance.destroy();
+        if (mychart2) {
+            mychart2.destroy();
         }
 
         let dados = {
-            labels: listaQntd,
+            labels: labels,
             datasets: [{
                 label: 'Quantidade de Acertos',
-                data: listaValores,
+                data: [],
                 backgroundColor: 'lightblue',
                 borderColor: 'blue',
                 borderWidth: 2,
                 fill: false
             }]
         };
+
+         for (i = 0; i < listaValores.length; i++) {
+                var registro = listaValores[i];
+                labels.push(registro.dtRegistro);
+                dados.datasets[0].data.push(registro.numAcertos);
+        }
+
         let config = {
             type: "line",
-            data: [listaQntd],
+            data: dados,
             options: {
                 responsive: true,
                 plugins: {
@@ -225,7 +228,12 @@
                 },
             },
         };
-        let mychart = new Chart(document.getElementById('linha'), config);
+        mychart2 = new Chart(document.getElementById('linha'), config);
+            /* setTimeout(
+                () => atualizarGrafico2(idUsuario, piso, posicao, dados, myChart2),
+                2000
+            ); 
+            */
     }
 
 
@@ -234,6 +242,6 @@
     })
 
     addEventListener("DOMContentLoaded", function () {
-        obterGrafico2();
+        obterGrafico2(selectOpt.value);
     });
 </script>

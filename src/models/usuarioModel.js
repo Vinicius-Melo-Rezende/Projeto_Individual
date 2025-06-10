@@ -43,7 +43,7 @@ function obterGrafico() {
 
 function obterGrafico2(opcoes) {
     var instrucaoSql = `
-      SELECT numAcertos FROM Historico ORDER BY idHistorico DESC LIMIT ${opcoes}
+      SELECT numAcertos, date_format(dtRegistro, '%d/%m/%Y') as dtRegistro FROM Historico ORDER BY idHistorico DESC LIMIT ${opcoes}
     `;
     return database.executar(instrucaoSql);
 }

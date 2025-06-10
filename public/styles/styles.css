@@ -173,7 +173,8 @@ header {
 }
 
 #imgLinhaDaVida {
-    width: 70%;
+    width: 30vw;
+    height: 60vh;
 }
 
 #p-LinhaDaVida {

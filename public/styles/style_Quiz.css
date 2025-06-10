@@ -126,12 +126,12 @@ body{
 
 #SeletorMeses {
     color: white;
-    font-size: 3vh;
+    font-size: 2vh;
     font-family: 'Georgia', serif;
 }
 
 #opcoes {
-    border: 5px solid;
+    border: 1px solid;
     border-color: #CD853F;
     border-radius: 40vw;
     background-color: #CD853F;  
@@ -206,13 +206,15 @@ border-radius: 40vw;
 }
 
 #div_KPI2 {
-margin-left: 8vw;
+margin-left: 7vw;
 font-size: 5vh;
 border: 3px solid;
-padding-left: 2.7vw;
-margin-right: 7vw;
+margin-right: 6vw;
 border-color: #CD853F;
 border-radius: 40vw;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 #div_KPI3 {
@@ -220,7 +222,7 @@ margin-left: 7vw;
 font-size: 5vh;
 border: 3px solid;
 padding-left: 2vw;
-margin-right: 8vw;
+margin-right: 9vw;
 border-color: #CD853F;
 border-radius: 40vw;
 }
@@ -229,7 +231,7 @@ border-radius: 40vw;
     color: white;
     font-family: 'Georgia', serif;
     font-size: 5vh;
-    margin-left: 15vw;
+    margin-left: 12vw;
     margin-top: 3vh;
 }
 
