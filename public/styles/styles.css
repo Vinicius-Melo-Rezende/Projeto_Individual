@@ -192,6 +192,7 @@ header {
     display: flex;
     justify-content: space-around;
     background-color: #000;
+    padding-top: 3vh;
 }
 
 .containerMVV {

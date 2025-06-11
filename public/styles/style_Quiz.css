@@ -145,7 +145,7 @@ body{
 #Kpi1 {
     color: white;
     height: 15vh;
-    width: 22vw;
+    width: 24vw;
     border: 5px solid;
     border-color: #CD853F;
     background-color: black;
@@ -166,7 +166,7 @@ body{
 #Kpi3 {
     color: white;
     height: 15vh;
-    width: 22vw;
+    width: 20vw;
     border: 5px solid;
     border-color: #CD853F;
     background-color: black;
@@ -209,7 +209,7 @@ border-radius: 40vw;
 margin-left: 7vw;
 font-size: 5vh;
 border: 3px solid;
-margin-right: 6vw;
+margin-right: 7vw;
 border-color: #CD853F;
 border-radius: 40vw;
 display: flex;
@@ -222,7 +222,7 @@ margin-left: 7vw;
 font-size: 5vh;
 border: 3px solid;
 padding-left: 2vw;
-margin-right: 9vw;
+margin-right: 7vw;
 border-color: #CD853F;
 border-radius: 40vw;
 }
